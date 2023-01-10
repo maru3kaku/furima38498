@@ -24,40 +24,58 @@ Things you may want to cover:
 * ...
 
 
-## users table
+## users table #ユーザー
 |Column|Type|Options|
 | email              | string              | null: false, unique: true |
 | encrypted_password | string              | null: false               |
-| name               | string              | null: false               |
-| adress             | text                | null: false               | ## 住所
+| birthday           | string              | null: false               |
+| name kana          | text                | null: false               |
+| name               | text                | null: false               |
+| nickname           | text                | null: false               |
 |------|----|-------|
 
 ### Association
-* has_many :prototypes
-* has_many :comments
+* has_many :items
+* has_many :buys
+has_many :shippings
 
-## item table
+## items table #商品
 |Column|Type|Options|
 | title                               | string     | null: false                    | ## 商品名
 | concept                             | text       | null: false                    | ## 商品説明
 | user                                | references | null: false, foreign_key: true | ## 出品者
-| price                               | string     | null: false                    | ## 商品の値段
-| shippingprice                       | string     | null: false                    | ## 配送料
-| category                            | text       | null: false                    | ## カテゴリー
-| status                              | text       | null: false                    | ## 商品状態
-
+| price                               | integer    | null: false                    | ## 商品の値段
+| category_id                         | integer    | null: false                    | ## カテゴリー
+| status_id                           | integer    | null: false                    | ## 商品の状態
+| delivery charge burden_id           | integer    | null: false                    | ## 配送料負担
+| prefectures_id                    | integer    | null: false                    | ## 発送元の地域/都道府県
+| shipping day_id                     | integer    | null: false                    | ## 発送までの日数
 |------|----|-------|
 ### Association
 - belongs_to :user
-- has_many :comments
+- has_one :buy
+  has_one :shippings
 
-## shipping table
+## shippings table #配送先住所情報
 |Column|Type|Options|
-|shipping area                        | text       | null: false                    | ## 発送地域
-|shipping day                         | text       | null: false                    | ## 発送日数
+|post code       |integer    | null: false                    | ##郵便番号
+|prefectures_id  |integer    | null: false                    | ##都道府県
+|city            |text       | null: false                    | ##市区町村
+|address         |text       | null: false                    | ##番地
+|building name   |text       | null: false                    | ##建物名
+|telephone number|integer    | null: false                    | ##電話番号
 |------|----|-------|
 ### Association
 
+belongs_to :user
+belongs_to :buy
+belongs_to :item
 
-- belongs_to :user
-- has_many :comments
+## buys table #商品購入履歴テーブル
+| title                               | string     | null: false                    | ## 商品名
+| delivery charge burden_id           | integer    | null: false                    | ## 配送料負担
+### Association
+
+belongs_to :user
+belongs_to :buy
+belongs_to :item
