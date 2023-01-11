@@ -57,14 +57,14 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :buy
 
-## shippings table #配送先住所情報
+## shippings table #住所
 |Column          |Type       |Options        |
 |post_code       |string     | null: false   | ##郵便番号
 |prefecture_id   |integer    | null: false   | ##都道府県
 |city            |string     | null: false   | ##市区町村
-|address         |string     | null: false,foreign_key: true  | ##番地
-|building_name   |string     | foreign_key: true      | ##建物名
-|telephone_number|string     | null: false,foreign_key: true  | ##電話番号
+|address         |references     | null: false,foreign_key: true  | ##番地
+|building_name   |references     | foreign_key: true      | ##建物名
+|telephone_number|references     | null: false,foreign_key: true  | ##電話番号
 |------|----|-------|
 ### Association
 belongs_to :buy
