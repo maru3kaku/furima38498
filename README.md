@@ -28,7 +28,7 @@ Things you may want to cover:
 |Column              |Type                 |Options                    |
 | email              | string              | null: false, unique: true |
 | encrypted_password | string              | null: false               |
-| birthday           | string              | null: false               |
+| birthday           | date                | null: false               |
 | name_kana          | string              | null: false               |
 | name               | string              | null: false               |
 | sei_kana           | string              | null: false               |
@@ -58,21 +58,24 @@ Things you may want to cover:
 - has_one :buy
 
 ## shippings table #配送先住所情報
-|Column          |Type       |Options                         |
-|post_code       |integer    | null: false                    | ##郵便番号
-|prefecture_id   |integer    | null: false                    | ##都道府県
-|city            |string     | null: false                    | ##市区町村
-|address         |string     | null: false, foreign_key: true | ##番地
-|building_name   |string     | foreign_key: true              | ##建物名
-|telephone_number|integer    | null: false, foreign_key: true | ##電話番号
+|Column          |Type       |Options        |
+|post_code       |string     | null: false   | ##郵便番号
+|prefecture_id   |integer    | null: false   | ##都道府県
+|city            |string     | null: false   | ##市区町村
+|address         |string     | null: false,  | ##番地
+|building_name   |string     |               | ##建物名
+|telephone_number|string     | null: false   | ##電話番号
 |------|----|-------|
 ### Association
 belongs_to :buy
 
 ## buys table #商品購入履歴テーブル
-|Column         |Type       |Options                         |
-|users_id       |string     | null: false, foreign_key: true |
-|items_id       |string     | null: false, foreign_key: true |
+|Column          |Type          |Options                         |
+|address         |references    | null: false, foreign_key: true | ##番地
+|building_name   |references    | foreign_key: true              | ##建物名
+|telephone_number|references    | null: false, foreign_key: true | ##電話番号
+|user            |references    | null: false, foreign_key: true | ##ユーザー
+|item            |references    | null: false, foreign_key: true | ##商品
 ### Association
 
 belongs_to :user
