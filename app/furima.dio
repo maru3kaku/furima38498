@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="fnaXve9NyvA9Sk9Rw14_" name="ページ1">
-        <mxGraphModel dx="728" dy="376" grid="0" gridSize="13" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="728" dy="680" grid="0" gridSize="13" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -62,7 +62,7 @@
                     <mxGeometry y="204" width="196" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="shippings" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;shadow=1;" vertex="1" parent="1">
-                    <mxGeometry x="52" y="486" width="140" height="198" as="geometry"/>
+                    <mxGeometry x="52" y="486" width="140" height="228" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="post_code" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="19">
                     <mxGeometry y="26" width="140" height="22" as="geometry"/>
@@ -81,6 +81,9 @@
                 </mxCell>
                 <mxCell id="63" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-family: &amp;quot;menlo&amp;quot; , &amp;quot;monaco&amp;quot; , &amp;quot;courier new&amp;quot; , monospace ; font-weight: normal ; font-size: 12px ; line-height: 18px&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #d4d4d4&quot;&gt;telephone_number&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Helvetica;fontColor=#F0F0F0;html=1;align=center;" vertex="1" parent="19">
                     <mxGeometry y="168" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="&lt;div&gt;&lt;span&gt;buy&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontFamily=Helvetica;fontColor=#F0F0F0;html=1;align=center;" vertex="1" parent="19">
+                    <mxGeometry y="198" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=20;html=1;endArrow=ERzeroToMany;endFill=1;fontFamily=Helvetica;fontColor=#F0F0F0;entryX=0.014;entryY=-0.05;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;exitX=1.014;exitY=0.067;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="55" target="42">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">

@@ -62,9 +62,10 @@ Things you may want to cover:
 |post_code       |string     | null: false   | ##郵便番号
 |prefecture_id   |integer    | null: false   | ##都道府県
 |city            |string     | null: false   | ##市区町村
-|address         |references     | null: false,foreign_key: true  | ##番地
-|building_name   |references     | foreign_key: true      | ##建物名
-|telephone_number|references     | null: false,foreign_key: true  | ##電話番号
+|address         |text     | null: false,foreign_key: true  | ##番地
+|building_name   |text     | foreign_key: true      | ##建物名
+|telephone_number|integer     | null: false,foreign_key: true  | ##電話番号
+|buy             |references    | null: false, foreign_key: true |
 |------|----|-------|
 ### Association
 belongs_to :buy
