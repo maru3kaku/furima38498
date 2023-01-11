@@ -59,13 +59,13 @@ Things you may want to cover:
 
 ## shippings table #住所
 |Column          |Type       |Options        |
-|post_code       |string     | null: false   | ##郵便番号
-|prefecture_id   |integer    | null: false   | ##都道府県
-|city            |string     | null: false   | ##市区町村
-|address         |text     | null: false,foreign_key: true  | ##番地
-|building_name   |text     | foreign_key: true      | ##建物名
-|telephone_number|integer     | null: false,foreign_key: true  | ##電話番号
-|buy             |references    | null: false, foreign_key: true |
+|post_code       |string     | null: false                    | ##郵便番号
+|prefecture_id   |integer    | null: false                    | ##都道府県
+|city            |string     | null: false                    | ##市区町村
+|address         |string     | null: false                    | ##番地
+|building_name   |string     |                                | ##建物名
+|telephone_number|string     | null: false                    | ##電話番号
+|buy             |references | null: false, foreign_key: true |
 |------|----|-------|
 ### Association
 belongs_to :buy
