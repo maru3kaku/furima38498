@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters  
       # deviseのUserモデルにパラメーターを許可
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:email,:encrypted_password, :birthday, :name_kana, :name, :sei_kana, :sei, :nickname])
+      devise_parameter_sanitizer.permit(:sign_up, keys: 
+        [:birthday, :name_kana, :name, :sei_kana, :sei, :nickname])
     end
 
 
