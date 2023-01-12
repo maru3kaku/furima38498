@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :sei_kana, presence: true
   validates :sei , presence: true
   validates :nickname, presence: true
-  
+ 
 end

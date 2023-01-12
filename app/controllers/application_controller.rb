@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
       username == 'qwerty' && password == '2222'
     end
 
-    def configure_permitted_parameters  # メソッド名は慣習
+    def configure_permitted_parameters  
       # deviseのUserモデルにパラメーターを許可
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:許可するキー])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:email,:encrypted_password, :birthday, :name_kana, :name, :sei_kana, :sei, :nickname])
     end
 
 
