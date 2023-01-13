@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller? #デバイスコントローラーの処理がtrueの場合
-
+  #before_action :sign_in, if: :devise_controller?
+  
+  
   private
 
   def basic_auth
@@ -11,17 +13,8 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters  
       # deviseのUserモデルにパラメーターを許可
-      devise_parameter_sanitizer.permit(:sign_up, keys: 
-        [:birthday, :name_kana, :name, :sei_kana, :sei, :nickname])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday, :name_kana, :name, :sei_kana, :sei, :nickname]) #:password, :emailデフォルトのためいらない
     end
 
-
-
-
-
-
-
   end
-
-
 end
