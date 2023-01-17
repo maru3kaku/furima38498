@@ -39,6 +39,16 @@ RSpec.describe User, type: :model do
       @user.password_confirmation = '1234567'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-      end
     end
+    it '名前にひらがな漢字かなのみの入力が必須であること' do
+      @user.name = 'asdf'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Name is invalid. Input full-width characters.")
+end  
+it '姓にひらがな漢字かなのみの入力が必須であること' do
+  @user.sei = 'asdf'
+  @user.valid?
+  expect(@user.errors.full_messages).to include("Sei is invalid. Input full-width characters.")
+end  
+  end
   end
