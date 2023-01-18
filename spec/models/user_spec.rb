@@ -6,16 +6,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    context '新規登録できるとき' do
-      it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
-        @user.password = @user.password_confirmation
-        @user.nickname = @user.nickname
-        @user.email = @user.email
-        @user.valid?
-      end
-    end
-
-    context '新規登録できないとき' do
+   context '新規登録できないとき' do
     it "メールアドレスが一意性であること。" do
       @user.save
       another_user = FactoryBot.build(:user)
@@ -99,6 +90,17 @@ it "誕生日が必須であること" do
   @user.birthday = ''
   @user.valid?
   expect(@user.errors.full_messages).to include("Name kana is invalid. Input full-width characters.", "Sei kana is invalid. Input full-width characters.", "Birthday is invalid. Input full-width characters.")
+end
+
+context '新規登録できるとき' do
+  it 'nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる' do
+    @user.password = @user.password_confirmation
+    @user.nickname = @user.nickname
+    @user.email = @user.email
+    @user.valid?
+  end
+it "全ての項目が入力されていれば購入できる" do
+end
 end
 
 end
