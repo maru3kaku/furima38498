@@ -1,4 +1,4 @@
-class Category < ActiveHash::Base
+class Delivery_charge_burden < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '経済' },
