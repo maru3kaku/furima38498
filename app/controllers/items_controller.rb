@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
   
   def new
-    @item = item.new
+    
   end
   
   def message_params
