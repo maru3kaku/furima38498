@@ -7,5 +7,7 @@ class ItemsController < ApplicationController
     @item = item.new
   end
   
-
+  def message_params
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  end
    end
