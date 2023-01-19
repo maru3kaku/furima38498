@@ -3,6 +3,9 @@ class ItemsController < ApplicationController
     
   end
   
-   end
+  def new
+    @item = Prototype.new
+  end
+  
 
- 　
+   end
