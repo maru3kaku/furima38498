@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  validate :image, presence: true
   validate :title, presence: true                       #商品名
   validates :concept, presence: true                    #商品の説明
   validates :category_id  ,presence: true              #カテゴリー
@@ -8,7 +9,6 @@ class Item < ApplicationRecord
   validates :shipping_day_id, presence: true            #発送までの日数
   validates :price, presence: true  
 
-
   belongs_to :user
   has_one_attached :image
 
@@ -17,5 +17,8 @@ class Item < ApplicationRecord
   validates :shipping_day_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :status_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"} 
+
+  validates :price, format:{with: /\A[0-9]+\z/i, message: "is invalid. Input full-width characters."}
+
 end
 end
