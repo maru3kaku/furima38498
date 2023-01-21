@@ -11,6 +11,8 @@ FactoryBot.define do
       shipping_day_id {1}#発送までの日数
       price{10000}#価格
       
-      
+      after(:build) do |message|
+        message.image.attach(io: File.open('images/testomu.png'), filename: 'testomu.png')
+      end
   end
 end
