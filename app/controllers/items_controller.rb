@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
 
   def create
-      @item = Item.new(prototype_params)    
+      @item = Item.new(item_params)    
       if @Item.save
         redirect_to root_path
       else 
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
   end
   
-  def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  def item_params
+    params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
   end
 
