@@ -13,7 +13,7 @@ describe '商品出品' do
       expect(@item.errors.full_messages).to include("Title can't be blank")
    end
    it "商品説明が必須であること" do
-    @item. concept= ''
+    @item.concept= ''
     @item.valid?
     expect(@item.errors.full_messages).to include("Concept can't be blank")
   end
@@ -91,6 +91,11 @@ describe '商品出品' do
     @item.user = nil
     @item.valid?
     expect(@item.errors.full_messages).to include('User must exist')
+  end
+  it "商品画像が空では出品出来ない" do
+    @item.image = nil
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Image can't be blank")
   end
   end
 end  
