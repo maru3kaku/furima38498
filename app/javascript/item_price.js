@@ -6,7 +6,7 @@ const priceInput = document.getElementById("item-price");
     const inputValue = priceInput.value;
     const addTaxDom = document.getElementById("add-tax-price");//販売手数料 (10%)
     const addTax = inputValue
-    addTaxDom.innerHTML = addTax * 0.1;
+    addTaxDom.innerHTML = Math.floor(addTax * 0.1);
     const profit = document.getElementById("profit");//販売利益
     profit.innerHTML = addTax - addTaxDom.innerHTML;
   })

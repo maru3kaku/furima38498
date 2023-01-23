@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   validates :image, presence: true
+  validates :title, presence: true,length: { maximum: 40 }  #商品名
   validates :concept, presence: true, length: { maximum: 1000 }                   #商品の説明
    validates :category_id  ,presence: true              #カテゴリー
    validates :status_id, presence: true                  #商品状態
