@@ -9,8 +9,7 @@ FactoryBot.define do
       prefecture_id {2}#発送元の地域
       shipping_day_id {2}#発送までの日数
       price{10000}#価格
-      user_id{1}
-      id{1}
+      
 
       association :user
 

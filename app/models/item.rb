@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   validates :image, presence: true
-  validates :title, presence: true,length: { maximum: 40 }  #商品名
-  validates :concept, presence: true, length: { maximum: 1000 }                   #商品の説明
+  validates :title, presence: true#商品名
+  validates :concept, presence: true                  #商品の説明
    validates :category_id  ,presence: true              #カテゴリー
    validates :status_id, presence: true                  #商品状態
    validates :delivery_charge_burden_id , presence: true #配送料の負担
@@ -16,8 +16,7 @@ class Item < ApplicationRecord
   validates :delivery_charge_burden_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :shipping_day_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :status_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"} 
-
+  validates :prefecture_id, numericality: { other_than: 0 , message: "can't be blank"} 
   validates :price, format:{with: /\A[0-9]+\z/i, message: "is invalid. Input Half-width characters."}
   
 end
