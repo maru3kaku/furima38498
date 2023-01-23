@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-      image {"testomu.png"}
       title{"オム"}#商品名
       concept{"いいね"}#商品の説明
       category_id{2}#カテゴリー
