@@ -17,4 +17,5 @@ validates :password, format:{with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, messa
   validates :sei , presence: true
   validates :nickname, presence: true
  
+  has_many :items
 end
