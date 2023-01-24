@@ -127,7 +127,15 @@
       新規投稿商品
     </div>
     <ul class='item-lists'>
-
+ <% @items.each do |item| %>
+    <div class="content_post" url(<%= item.image %>);>
+      
+      <p><%= item.image %></p>  <%# 商品画像 %>
+      <p><%= item.price %></p>  <%# 価格 %>
+      <p><%= item.title %></p>  <%# 商品名 %>
+     <p><%= item.delivery_charge_burden_id %></p><%# 配送負担 %>
+    </div>
+  <% end %>
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <li class='list'>
         <%= link_to "#" do %>
