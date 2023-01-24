@@ -130,7 +130,8 @@
  <% @items.each do |item| %>
     <div class="content_post" url(<%= item.image %>);>
       
-      <p><%= item.image %></p>  <%# 商品画像 %>
+      
+      <p><%= image_tag item.image.variant(resize: '100x100'), class: 'item-image' if item.image.attached?%></p><%# 商品画像 %>
       <p><%= item.price %></p>  <%# 価格 %>
       <p><%= item.title %></p>  <%# 商品名 %>
      <p><%= item.delivery_charge_burden_id %></p><%# 配送負担 %>
