@@ -136,7 +136,6 @@
       <%# ①商品画像 %>
          <%= link_to image_tag(item.image.variant(resize: '500x500'), class: 'item-image'),item_path(item.id)if item.image.attached?%>
          <div class='item-img-content'>
-         <%= image_tag "item-sample.png", class: "item-img" %>
       <%# ②「sold out」表示 %>
           <%# 商品が売れていればsold outを表示しましょう %>
            <%# <div class='sold-out'>
