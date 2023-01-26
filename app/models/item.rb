@@ -18,4 +18,6 @@ class Item < ApplicationRecord
   validates :status_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :prefecture_id, numericality: { other_than: 0 , message: "can't be blank"} 
   
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :delivery_charge_burden
 end
