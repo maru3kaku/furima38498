@@ -35,9 +35,9 @@
 <% else %>
 
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
- <% @items.each do |item| %>
-    <div class="content_post"  url(<%= item.image %>);>
-      <p><%= tweet.text %></p>
+ <%# @items.each do |item| %>
+    <div class="content_post"  url(<%= @item.image %>);>
+  
 
     <div class="item-explain-box">
       <span><%= "商品説明" %></span>
@@ -70,7 +70,7 @@
         </tr>
       </tbody>
     </table>
-    <% end %>
+    <%# end %>
     <div class="option">
       <div class="favorite-btn">
         <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
@@ -112,3 +112,4 @@
 </div>
 
 <%= render "shared/footer" %>
+<% end %>
