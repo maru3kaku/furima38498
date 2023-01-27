@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @item = Item.new
+    #@item = Item.find(params[:id])
+    #@item = Item.new
     # @items = @item.comments.includes(:user)
   end
 

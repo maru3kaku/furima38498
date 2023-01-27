@@ -128,12 +128,12 @@
     </div>
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <ul class='item-lists'>
-      <li class='list'>
+      
        <% @items.each do |item| %>
+       <li class='list'>
       <div class='item-img-content'>
-      <% image_tag "item-sample.png", class: "item-img" %>
       <%# ①商品画像 %>
-         <%= link_to image_tag(item.image.variant(resize: '300x300'), class: 'item-image'),item_path(item.id)if item.image.attached?%>
+         <%= link_to image_tag(item.image.variant(resize: '300x300'), class: 'item-image')%>
       <%# ②「sold out」表示 商品が売れていればsold outを表示しましょう %>
           <%# if item.purchase.present?%>
               <%# <div class='sold-out'>
@@ -159,11 +159,9 @@
           </div>
         </div> 
         </div>
-        <% end %>
       </li>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
-      <%# 商品がある場合は表示されないようにしましょう %>
+    <% end %>
+     
       <% if @items.blank?%>
       <li class='list'>
         <%= link_to '#' do %>
@@ -183,8 +181,7 @@
         <% end %>
       </li>
        <% end %>
-      <%# //商品がある場合は表示されないようにしましょう %>
-      <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
+     
     </ul>
   </div>
   <%# /商品一覧 %>
