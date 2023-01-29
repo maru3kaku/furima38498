@@ -21,5 +21,4 @@ class User < ApplicationRecord
   has_many :items
   include ActiveHash::Associations
   has_many :items
-
 end
