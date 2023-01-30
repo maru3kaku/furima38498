@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create,:edit, :update, :show]
+  before_action :contributor_confirmation, only: [:edit, :update]
+
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
@@ -38,5 +40,10 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :title, :concept, :status_id, :category_id, :delivery_charge_burden_id, :prefecture_id,
                                  :shipping_day_id, :price).merge(user_id: current_user.id)
+   end
+   def contributor_confirmation
+    unless current_user == @prototype.user
+      redirect_to action: :index
   end
+end
 end
