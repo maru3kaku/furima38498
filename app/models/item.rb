@@ -12,7 +12,8 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-
+  has_one_attached :order
+  
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :delivery_charge_burden_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_day_id, numericality: { other_than: 1, message: "can't be blank" }
