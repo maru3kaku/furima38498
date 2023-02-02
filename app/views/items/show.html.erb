@@ -28,7 +28,7 @@
     <p class="or-text">or</p>
     <%= link_to "削除", item_path(@item), method: :delete, method: :delete, class:"item-destroy" %>
   <% else %>
-    <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%><%# 商品購入ボタン %>
+    <%= link_to "購入画面に進む", "/items/orders/index" ,class:"item-red-btn"%><%# 商品購入ボタン %>
   <% end %>
 <% end %>
     <div class="item-explain-box">
