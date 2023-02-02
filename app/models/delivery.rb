@@ -1,14 +1,9 @@
 class Delivery < ApplicationRecord
-  validates :image, presence: true
-  validates :prefecture, presence: true
-  validates :image, presence: true
-  validates :image, presence: true
-  validates :image, presence: true
-  validates :image, presence: true
-  validates :image, presence: true
-
-  validates :image, presence: true
-  validates :image, presence: true
-  validates :image, presence: true
+  validates :post_code, presence: true
+  validates :prefecture_id, presence: true
+  validates :city, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true
+  
 
 end
