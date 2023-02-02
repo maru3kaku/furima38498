@@ -40,8 +40,6 @@ class ItemsController < ApplicationController
        redirect_to item_path
     end
   end
-  
-
   private
   def item_params
     params.require(:item).permit(:image, :title, :concept, :status_id, :category_id, :delivery_charge_burden_id, :prefecture_id,
