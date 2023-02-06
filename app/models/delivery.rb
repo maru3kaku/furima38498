@@ -5,6 +5,12 @@ class Delivery < ApplicationRecord
   validates :telephone_number, presence: true,format: {with: /\A[0-9]\z/,message: "can't be blank"}
   validates :prefecture_id, presence: true,numericality: { other_than: 0, message: "can't be blank" }
 
+  belongs_to :item
+  belongs_to :user
+  belongs_to :order
+
+
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
 end

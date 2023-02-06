@@ -4,4 +4,8 @@ class Order < ApplicationRecord
   validates :card_year , presence: true #カード有効期限の年
   validates :card_month, presence: true #カード有効期限の月
   validates :card_cvc, presence: true   #カードのcvc
+
+  belongs_to :item
+  belongs_to :user
+  belongs_to :delivery
 end

@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    binding.pry
     if @order.save
       return redirect_to root_path
     else
@@ -18,7 +19,8 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price,:item_id)
+    params.require(:order).permit(:card_cvc,:card_year,:card_month,:card_no,:building_name,:prefecture_id,
+      :telephone_number, :address,:post_code,:city,:price,:item_id,)
   end
 
   def item_params
