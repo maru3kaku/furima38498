@@ -41,8 +41,14 @@ ActiveRecord::Schema.define(version: 2023_02_02_112244) do
     t.string "building_name"
     t.integer "telephone_number", null: false
     t.string "order", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_deliveries_on_item_id"
+    t.index ["order_id"], name: "index_deliveries_on_order_id"
+    t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,6 +75,10 @@ ActiveRecord::Schema.define(version: 2023_02_02_112244) do
     t.integer "card_cvc", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,5 +100,10 @@ ActiveRecord::Schema.define(version: 2023_02_02_112244) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "deliveries", "items"
+  add_foreign_key "deliveries", "orders"
+  add_foreign_key "deliveries", "users"
   add_foreign_key "items", "users"
+  add_foreign_key "orders", "items"
+  add_foreign_key "orders", "users"
 end

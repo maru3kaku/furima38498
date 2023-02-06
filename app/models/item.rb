@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :shipping_day_id, presence: true            # 発送までの日数
   validates :price, presence: true,
                     numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is invalid' }
-
+  has_one_attached :image
   belongs_to :user
   has_one_attached :delivery
   has_one_attached :order

@@ -10,8 +10,9 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :shipping_day_id, null: false            #発送までの日数
       t.integer :price, null: false                      #価格
       t.references :user, null: false, foreign_key: true #ユーザー
+      
       t.timestamps
-      has_one_attached :image
+      
     end
   end
 end

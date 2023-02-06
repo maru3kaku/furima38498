@@ -8,6 +8,10 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.integer :card_month ,null: false #カードの有効期限（月） 
       t.integer :card_cvc ,null: false        #カードのCVC
       t.timestamps
+      t.references :user, null: false, foreign_key: true #ユーザー
+     
+      t.references :item,    null: false, foreign_key: true #カード情報
+  
     end
   end
 end
