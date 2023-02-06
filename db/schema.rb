@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2023_02_02_112244) do
     t.string "address", null: false
     t.string "building_name"
     t.integer "telephone_number", null: false
-    t.string "order", null: false
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
     t.bigint "order_id", null: false
@@ -68,7 +67,6 @@ ActiveRecord::Schema.define(version: 2023_02_02_112244) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "price", null: false
-    t.integer "item", null: false
     t.integer "card_no", null: false
     t.integer "card_year", null: false
     t.integer "card_month", null: false
