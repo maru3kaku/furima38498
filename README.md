@@ -51,26 +51,23 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - has_one :buy
-## shippings table #住所
+## deliverys table #住所
 |Column          |Type       |Options        |
 |post_code       |string     | null: false   | ##郵便番号
 |prefecture_id   |integer    | null: false   | ##都道府県
 |city            |string     | null: false   | ##市区町村
-|address         |references     | null: false,foreign_key: true  | ##番地
-|building_name   |references     | foreign_key: true      | ##建物名
-|telephone_number|references     | null: false,foreign_key: true  | ##電話番号
 |address         |text     | null: false,foreign_key: true  | ##番地
 |building_name   |text     | foreign_key: true      | ##建物名
-|telephone_number|integer     | null: false,foreign_key: true  | ##電話番号
-|buy             |references    | null: false, foreign_key: true |
+|telephone_number|string     | null: false,foreign_key: true  | ##電話番号
+|order           |references    | null: false, foreign_key: true |
 |------|----|-------|
 ### Association
-belongs_to :buy
-## buys table #商品購入履歴テーブル
+belongs_to :order
+## orders table #商品購入履歴テーブル
 |Column          |Type          |Options                         |
 |user            |references    | null: false, foreign_key: true | ##ユーザー
 |item            |references    | null: false, foreign_key: true | ##商品
 ### Association
 belongs_to :user
 belongs_to :item
-has_one :shipping
+has_one :derivery
