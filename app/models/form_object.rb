@@ -9,8 +9,7 @@ class FormObject
   validates :prefecture_id,numericality: { other_than: 0, message: "can't be blank" }
   validates :city, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid.' }
   validates :address, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid.'}
-  validates :telephone_number, presence: true
-  validates :telephone_number, format: {with: /\A[0-9]\z/,message: "can't be blank"}#二重
+  validates :telephone_number, presence: true, format: {with: /\A[0-9]\z/}
 # validates :building_name
   # validates :price, presence: true, format:{with: /\A[0-9]\z/, message: "is invalid. "}     #価格
   # validates :card_no , presence: true, format:{with: /\A[0-9]\z/, message: "is invalid. "}    #カード番号

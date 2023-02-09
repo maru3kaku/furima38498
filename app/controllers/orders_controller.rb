@@ -15,9 +15,12 @@ end
     @order = FormObject.new(order_params)
     @item = Item.find(params[:item_id])
     if @order.valid?
+      
       @order.save
       return redirect_to root_path
     else
+
+
       render :index
     end
   end
