@@ -6,12 +6,19 @@ class OrdersController < ApplicationController
     @order = FormObject.new
   end
 
+def new
+  @order = FormObject.new
+end
+
+
   def create
     @order = FormObject.new(order_params)
-    if @order.save
+    @item = Item.find(params[:item_id])
+    if @order.valid?
+      @order.save
       return redirect_to root_path
     else
-      render 'index'
+      render :index
     end
   end
 
