@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, except: :index
-  #before_action :set_order,only: :create
   def index
     @item = Item.find(params[:item_id])
     @order = FormObject.new

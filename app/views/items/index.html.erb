@@ -133,10 +133,11 @@
          <%# ①商品画像 %>
          <%= link_to image_tag(item.image.variant(resize: '500x500'), class: 'item-image'),item_path(item.id)if item.image.attached?%>
          <%# ②「sold out」表示 商品が売れていればsold outを表示しましょう %>
-          <%# if item.purchase.present?%>
-              <%# <div class='sold-out'>
+          <%if item.order.present?%>
+           <div class='sold-out'>
                <span>Sold Out!!</span>
-               </div> %>
+               </div>
+               <%end%>
                 <%#商品が売れていればsold outを表示しましょう %>
                 <%# ③商品名 %>
                 <div class='item-info'>

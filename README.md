@@ -50,7 +50,7 @@ Things you may want to cover:
 |------|----|-------|
 ### Association
 - belongs_to :user
-- has_one :buy
+- has_one :order
 ## deliverys table #住所
 |Column          |Type       |Options        |
 |post_code       |string     | null: false   | ##郵便番号
