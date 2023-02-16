@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
 
   def edit
     return unless @item.order.present?
-
     redirect_to root_path
   end
 end
@@ -46,7 +45,6 @@ def destroy
 end
 
   private
-
 def item_params
   params.require(:item).permit(:image, :id, :title, :concept, :status_id, :category_id, :delivery_charge_burden_id, :prefecture_id,
                                :shipping_day_id, :price).merge(user_id: current_user.id)
