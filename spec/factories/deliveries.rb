@@ -4,6 +4,6 @@ FactoryBot.define do
     prefecture_id{ 4 } #都道府県
     city{ 横浜市緑区 } #市区町村
     address{７丁目１番地} #番地
-    #telephone_number{090-1234-5678} #電話番号
+    telephone_number{12345678910} #電話番号
     end
   end

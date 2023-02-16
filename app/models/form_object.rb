@@ -10,10 +10,10 @@ class FormObject
   validates :post_code,format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid."}
   validates :prefecture_id, presence: true
   validates :prefecture_id,numericality: { other_than: 0, message: "can't be blank" }
-  validates :city, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid.' }
-  validates :address, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid.'}
-  #validates :telephone_number, presence: true, format: {with: /\A[0-9]\z/}
-# validates :building_name
+  validates :city, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true, format: {with:/\A\d{10,11}\z/, message: 'is invalid.'}
+
   def save
     order = Order.create!(user_id: user_id,item_id: item_id)
     Delivery.create!(post_code: post_code,prefecture_id: prefecture_id,city: city,address: address,
