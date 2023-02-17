@@ -37,10 +37,30 @@ RSpec.describe FormObject, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Telephone number can't be blank")
       end
-      it '電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと' do
-        @order.telephone_number = '123456789000'
+      it '電話番号は、10桁未満では登録できない' do
+        @order.telephone_number = '123456789'
         @order.valid?
-        expect(@order.errors.full_messages).to include('Telephone number is invalid.')
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
+      end
+      it '電話番号は、12桁以上では登録できない' do
+        @order.telephone_number = '12345678900000'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
+      end
+      it '電話番号に全角文字含むと登録できない' do
+        @order.telephone_number = '１２３４５６７８９０'
+        @order.valid?
+        expect(@order.errors.full_messages).to include('Telephone number is invalid')
+      end
+      it 'user_idが空では購入できない' do
+        @order.user_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では購入できない' do
+        @order.item_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item can't be blank")
       end
       it 'tokenが空では登録できないこと' do
         @order.token = nil
@@ -53,6 +73,11 @@ RSpec.describe FormObject, type: :model do
       it '全ての項目が入力されていれば購入できる' do
         expect(@order).to be_valid
       end
+      it '建物名は空でも購入できる' do
+        @order.building_name = ''
+        expect(@order).to be_valid
+      end
+
     end
   end
 end

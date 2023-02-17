@@ -11,7 +11,10 @@ class FormObject
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :city, presence: true
   validates :address, presence: true
-  validates :telephone_number, presence: true, format: { with: /\A\d{10,11}\z/, message: 'is invalid.' }
+  validates :telephone_number, presence: true, format: { with: /\A\d{10,11}\z/}
+  validates :user_id, presence: true
+  validates :item_id, presence: true
+
 
   def save
     order = Order.create!(user_id: user_id, item_id: item_id)
