@@ -117,7 +117,7 @@
     <li class='list'>
      <%= link_to "#" do %>
         <div class='item-img-content'>
-         <%= link_to image_tag(item.image.variant(resize: '500x500'), class: 'item-image'),item_path(item.id)if item.image.attached?%>
+         <%= link_to image_tag(item.image.variant(resize: '100x100'), class: 'item-image'),item_path(item.id)if item.image.attached?%>
           <%if item.order.present?%>
            <div class='sold-out'>
                <span>Sold Out!!</span>
