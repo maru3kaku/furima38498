@@ -70,4 +70,4 @@ belongs_to :order
 ### Association
 belongs_to :user
 belongs_to :item
-has_one :derivery
+has_one :form_object

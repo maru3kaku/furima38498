@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.describe FormObject, type: :model do
   before do
-    @order = FactoryBot.build(:form_object)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @order = FactoryBot.build(:form_object,user_id: user.id,item_id: item.id)
   end
-
   describe '商品購入' do
     context '購入できないとき' do
       it '郵便番号が必須であること。' do
-        @order.post_code = ''
+        @order.post_code = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Post code can't be blank")
       end
@@ -18,22 +19,22 @@ RSpec.describe FormObject, type: :model do
         expect(@order.errors.full_messages).to include('Post code is invalid.')
       end
       it '都道府県が必須であること。' do
-        @order.prefecture_id = ''
+        @order.prefecture_id = '0'
         @order.valid?
         expect(@order.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '市区町村が必須であること。' do
-        @order.city = ''
+        @order.city = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("City can't be blank")
       end
       it '番地が必須であること。' do
-        @order.address = ''
+        @order.address = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Address can't be blank")
       end
       it '電話番号が必須であること。' do
-        @order.telephone_number = ''
+        @order.telephone_number = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Telephone number can't be blank")
       end
@@ -53,12 +54,12 @@ RSpec.describe FormObject, type: :model do
         expect(@order.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'user_idが空では購入できない' do
-        @order.user_id = ''
+        @order.user_id = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("User can't be blank")
       end
       it 'item_idが空では購入できない' do
-        @order.item_id = ''
+        @order.item_id = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Item can't be blank")
       end
@@ -74,7 +75,7 @@ RSpec.describe FormObject, type: :model do
         expect(@order).to be_valid
       end
       it '建物名は空でも購入できる' do
-        @order.building_name = ''
+        @order.building_name = nil
         expect(@order).to be_valid
       end
 

@@ -4,7 +4,6 @@ class FormObject
                 :price, :token
 
   validates :token, presence: true
-
   validates :post_code, presence: true
   validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid.' }
   validates :prefecture_id, presence: true
@@ -14,7 +13,7 @@ class FormObject
   validates :telephone_number, presence: true, format: { with: /\A\d{10,11}\z/}
   validates :user_id, presence: true
   validates :item_id, presence: true
-
+  
 
   def save
     order = Order.create!(user_id: user_id, item_id: item_id)
