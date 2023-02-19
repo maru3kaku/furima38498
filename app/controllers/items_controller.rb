@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     return unless @item.order.present?
     redirect_to root_path
   end
-end
+
 
 def update
   if @item.update(item_params)
@@ -52,10 +52,10 @@ end
 
 def move_to_index
   return if current_user == @item.user
-
   redirect_to action: :index
 end
 
 def set_item
   @item = Item.find(params[:id])
+end
 end
