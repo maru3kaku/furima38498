@@ -115,9 +115,9 @@
 <ul class='item-lists'>  
     <% @items.each do |item| %>  
     <li class='list'>
-     <%= link_to "#" do %>
+     <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
-         <%= link_to image_tag(item.image.variant(resize: '100x100'), class: 'item-image'),item_path(item.id)if item.image.attached?%>
+         <%= image_tag(item.image.variant(resize: '100x100'), class: 'item-image')%>
           <%if item.order.present?%>
            <div class='sold-out'>
                <span>Sold Out!!</span>
